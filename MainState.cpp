@@ -1,10 +1,10 @@
 #include "MainState.hpp"
-
+#include <iostream>
 MainState::MainState() {}
 
 void MainState::run() {
 
-    applicationWindow.clear( sf::Color(170, 170, 170) );
+    applicationWindow.clear( sf::Color(200, 200, 200) );
 
     while( applicationWindow.isOpen() ){
         sf::Event event;

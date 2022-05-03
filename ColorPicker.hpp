@@ -3,6 +3,7 @@
 
 #include "Button.hpp"
 #include <SFML/Graphics.hpp>
+
 class ColorMatrix{
 
 private:
@@ -10,8 +11,11 @@ private:
     rectangleButton colorBar[17];
     int mainBarColor = 255;
     sf::RectangleShape  selectedColor;
-    sf::Vector2i matrixPos;
-    sf::Vector2i barPos;
+    sf::RectangleShape matrixSelect;
+    sf::RectangleShape barSelect;
+    sf::Text selectedText;
+    sf::Text selectedColorText;
+    sf::Font font;
 
 public:
 
@@ -22,8 +26,6 @@ public:
     void changeBarColor();
     void renderShape(sf::RenderWindow &target, sf::Vector2i mousePos);
     void checkPressing();
-    void setMatrixPos();
-    void setBarPos();
 };
 
 
