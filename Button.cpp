@@ -21,6 +21,7 @@ this->hover = hover;
 
 this->text = text;
 this->text.setString(textString);
+this->text.setPosition( position );
 this->texture = texture;
 
 // DEFAULT (NORMAL) TEXT COLOR
@@ -44,6 +45,7 @@ this->hover = hover;
 
 this->text = text;
 this->text.setString(textString);
+this->text.setPosition(position);
 
 // DEFAULT (NORMAL) BUTTON COLOR
 this->text.setFillColor(sf::Color(200, 200, 200));

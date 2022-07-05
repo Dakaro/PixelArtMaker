@@ -9,7 +9,7 @@ class PatternMatrix{
 private:
     rectangleButton patternPixel[16][16];
     rectangleButton resetButton;
-    sf::Color currentColor;
+    sf::Font font;
 
 public:
     PatternMatrix();
