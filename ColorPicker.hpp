@@ -16,6 +16,7 @@ private:
     sf::Text selectedText;
     sf::Text selectedColorText;
     sf::Font font;
+    sf::Color pickedColor;
 
 public:
 
@@ -26,6 +27,7 @@ public:
     void changeBarColor();
     void renderShape(sf::RenderWindow &target, sf::Vector2i mousePos);
     void checkPressing();
+    sf::Color getColor();
 };
 
 

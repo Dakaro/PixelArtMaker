@@ -17,6 +17,9 @@ void MainState::run() {
             // Color Picker
             matrix.checkPressing();
 
+            // Pattern
+            pattern.checkPressing( matrix.getColor() );
+
 
         }
         this->render();
@@ -27,5 +30,6 @@ void MainState::render() {
     matrix.changeBarColor();
 
     matrix.renderShape(applicationWindow, sf::Mouse::getPosition(applicationWindow) );
+    pattern.renderPattern(applicationWindow, sf::Mouse::getPosition(applicationWindow) );
     applicationWindow.display();
 }

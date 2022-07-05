@@ -26,6 +26,7 @@ protected:
     sf::Text text;
     sf::Texture texture;
 public:
+    void changeHoverColor(sf::Color color);
     bool isPressed();
     ~Button();
 

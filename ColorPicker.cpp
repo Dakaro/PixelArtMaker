@@ -44,7 +44,6 @@ ColorMatrix::ColorMatrix(){
                                       sf::Color( 100, 100, 100),
                                       sf::Color( 200 , 200, 200) );
     }
-
 }
 
 void ColorMatrix::renderShape(sf::RenderWindow &target, sf::Vector2i mousePos) {
@@ -91,6 +90,7 @@ void ColorMatrix::checkPressing() {
                 selectedColor.setFillColor(sf::Color( mainBarColor, i*16, j*16 ) );
                 matrixSelect.setPosition(j*21 + 7, i*21 + 7);
                 selectedColorText.setString("R: " + std::to_string(mainBarColor) + " G: " + std::to_string(i*16) + " B: " + std::to_string(j*16));
+                pickedColor = sf::Color( mainBarColor, i*16, j*16 );
             }
         }
 
@@ -101,5 +101,8 @@ void ColorMatrix::checkPressing() {
     }
 }
 
+sf::Color ColorMatrix::getColor() {
+    return pickedColor;
+}
 
 ColorMatrix::~ColorMatrix(){}

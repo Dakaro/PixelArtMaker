@@ -53,6 +53,10 @@ button_state = DEFAULT;
 
 }
 
+void Button::changeHoverColor(sf::Color color) {
+    this->hover = color;
+}
+
 bool Button::isPressed(){
     if( button_state == PRESSED )
     {
