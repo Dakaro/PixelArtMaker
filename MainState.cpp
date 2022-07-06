@@ -9,7 +9,6 @@ void MainState::run() {
     while( applicationWindow.isOpen() ){
         sf::Event event;
         applicationWindow.pollEvent(event);
-
             if (event.type == sf::Event::Closed)
                 applicationWindow.close();
 
@@ -18,7 +17,6 @@ void MainState::run() {
 
             // Pattern
             pattern.checkPressing( matrix.getColor() );
-
         this->render();
     }
 }

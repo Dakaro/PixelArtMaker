@@ -45,6 +45,10 @@ void PatternMatrix::checkPressing(sf::Color color) {
             if( patternPixel[i][j].isPressed() ){
                 patternPixel[i][j].updateColor( color );
             }
+
+            if( patternPixel[i][j].rightPressed() ){
+                patternPixel[i][j].updateColor( sf::Color(255, 255, 255 ) );
+            }
         }
     }
 

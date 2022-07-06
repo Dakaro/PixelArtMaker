@@ -45,7 +45,7 @@ this->hover = hover;
 
 this->text = text;
 this->text.setString(textString);
-this->text.setPosition(position);
+this->text.setPosition( centerTextPosition() );
 
 // DEFAULT (NORMAL) BUTTON COLOR
 this->text.setFillColor(sf::Color(200, 200, 200));
@@ -68,6 +68,22 @@ bool Button::isPressed(){
     {
         return false;
     }
+}
+
+bool Button::rightPressed(){
+    if( sf::Mouse::isButtonPressed( sf::Mouse::Right ) && button_state == HOVER ){
+        return true;
+    }
+    else{
+        return false;
+    }
+}
+
+sf::Vector2f Button::centerTextPosition() {
+    float posX = this->position.x + this->size.x/2 -  (this->text.getGlobalBounds().width - this->text.getGlobalBounds().left)/2 ;
+    float posY = this->position.y + this->size.y/2 -  (this->text.getGlobalBounds().height + this->text.getGlobalBounds().top)/2 ;
+
+    return sf::Vector2f(posX, posY);
 }
 
 
