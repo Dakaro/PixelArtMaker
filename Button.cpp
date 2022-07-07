@@ -86,6 +86,9 @@ sf::Vector2f Button::centerTextPosition() {
     return sf::Vector2f(posX, posY);
 }
 
+sf::Color Button::getColor() {
+    return this->normal;
+}
 
 void rectangleButton::render(sf::RenderWindow &target){
         target.draw(rectangleShape);

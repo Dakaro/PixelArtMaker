@@ -1,7 +1,4 @@
 #include "ColorPicker.hpp"
-#include "Button.hpp"
-#include <SFML/Graphics.hpp>
-#include <algorithm>
 #include <iostream>
 #include <string>
 

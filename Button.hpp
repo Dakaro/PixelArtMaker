@@ -30,6 +30,7 @@ public:
     bool isPressed();
     bool rightPressed();
     sf::Vector2f centerTextPosition();
+    sf::Color getColor();
     ~Button();
 
 

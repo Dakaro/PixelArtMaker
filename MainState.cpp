@@ -1,5 +1,5 @@
 #include "MainState.hpp"
-#include <iostream>
+
 MainState::MainState() {}
 
 void MainState::run() {

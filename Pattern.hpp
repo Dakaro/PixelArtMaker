@@ -9,6 +9,7 @@ class PatternMatrix{
 private:
     rectangleButton patternPixel[16][16];
     rectangleButton resetButton;
+    rectangleButton saveButton;
     sf::Font font;
 
 public:
@@ -16,7 +17,8 @@ public:
     ~PatternMatrix();
     void renderPattern(sf::RenderWindow &target, sf::Vector2i mousePos);
     void resetPattern();
-    void setPixel();
+    sf::Color const getPixelColor(int i, int j);
+    void saveImage();
     void checkPressing(sf::Color color);
 
 
