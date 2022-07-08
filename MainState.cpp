@@ -8,16 +8,25 @@ void MainState::run() {
 
     while( applicationWindow.isOpen() ){
         sf::Event event;
+
+        // random event except type 0 (closed)
+        event.type = sf::Event::GainedFocus;
+
         applicationWindow.pollEvent(event);
+
             if (event.type == sf::Event::Closed)
                 applicationWindow.close();
 
-            // Color Picker
-            matrix.checkPressing();
+            if( applicationWindow.hasFocus() ) {
+                // Color Picker
+                matrix.checkPressing();
 
-            // Pattern
-            pattern.checkPressing( matrix.getColor() );
+                // Pattern
+                pattern.checkPressing(matrix.getColor());
+            }
+
         this->render();
+
     }
 }
 

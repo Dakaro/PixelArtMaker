@@ -60,7 +60,8 @@ void Button::changeHoverColor(sf::Color color) {
 }
 
 bool Button::isPressed(){
-    if( button_state == PRESSED )
+
+    if( button_state == PRESSED  )
     {
         return true;
     }
@@ -105,7 +106,7 @@ void circleButton::updateColor(sf::Vector2i mousePos){
     button_state = DEFAULT;
     if( circleShape.getGlobalBounds().contains( sf::Vector2f (mousePos) ) ){
         button_state = HOVER;
-        if( sf::Mouse::isButtonPressed( sf::Mouse::Left ) )
+        if( sf::Mouse::isButtonPressed( sf::Mouse::Left )  )
         {
             button_state = PRESSED;
         }
@@ -130,7 +131,7 @@ void rectangleButton::updateColor(sf::Vector2i mousePos){
     button_state = DEFAULT;
     if( rectangleShape.getGlobalBounds().contains( sf::Vector2f (mousePos) ) ){
         button_state = HOVER;
-        if( sf::Mouse::isButtonPressed( sf::Mouse::Left ) )
+        if( sf::Mouse::isButtonPressed( sf::Mouse::Left )  )
         {
             button_state = PRESSED;
         }
