@@ -27,6 +27,7 @@ protected:
     sf::Texture texture;
 public:
     void changeHoverColor(sf::Color color);
+    void changeNormalColor(sf::Color color);
     bool isPressed();
     bool rightPressed();
     sf::Vector2f centerTextPosition();

@@ -1,4 +1,5 @@
 #include "MainState.hpp"
+#include <iostream>
 
 MainState::MainState() {}
 
@@ -19,7 +20,7 @@ void MainState::run() {
 
             if( applicationWindow.hasFocus() ) {
                 // Color Picker
-                matrix.checkPressing();
+                matrix.checkPressing( );
 
                 // Pattern
                 pattern.checkPressing(matrix.getColor());
@@ -33,6 +34,7 @@ void MainState::run() {
 void MainState::render() {
     matrix.changeBarColor();
 
+    matrix.setCopiedColor(pattern.getSavedColor());
     matrix.renderShape(applicationWindow, sf::Mouse::getPosition(applicationWindow) );
     pattern.renderPattern(applicationWindow, sf::Mouse::getPosition(applicationWindow) );
     applicationWindow.display();

@@ -11,7 +11,7 @@ PatternMatrix::PatternMatrix() {
                                    sf::Color(20, 20, 20),
                                    sf::Color(30, 30, 30), sf::Text("reset", font, 30), "reset" );
 
-    saveButton = rectangleButton( sf::Vector2f(100, 50), sf::Vector2f(635, 370),
+    saveButton = rectangleButton( sf::Vector2f(100, 50), sf::Vector2f(535, 370),
                                   sf::Color(100,100,   100),
                                   sf::Color(20, 20, 20),
                                   sf::Color(30, 30, 30), sf::Text("save", font, 30), "save" );
@@ -24,6 +24,8 @@ PatternMatrix::PatternMatrix() {
                                                    sf::Color(100, 100, 100) );
         }
     }
+
+    savedColor = sf::Color(255, 255, 255);
 }
 
 void PatternMatrix::renderPattern(sf::RenderWindow &target, sf::Vector2i mousePos) {
@@ -74,8 +76,9 @@ void PatternMatrix::checkPressing(sf::Color color) {
             }
 
             if( patternPixel[i][j].rightPressed() ){
-                patternPixel[i][j].updateColor( sf::Color(255, 255, 255 ) );
+                savedColor = patternPixel[i][j].getColor();
             }
+
         }
     }
 
@@ -87,8 +90,10 @@ void PatternMatrix::checkPressing(sf::Color color) {
         saveImage();
     }
 
+}
 
-
+sf::Color PatternMatrix::getSavedColor(){
+    return savedColor;
 }
 
 void PatternMatrix::resetPattern() {

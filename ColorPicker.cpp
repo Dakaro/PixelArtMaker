@@ -28,6 +28,17 @@ ColorMatrix::ColorMatrix(){
     barSelect.setSize( sf::Vector2f(7,7) );
 
 
+    rubber = rectangleButton( sf::Vector2f(60, 30), sf::Vector2f(400, 100),
+                              sf::Color(255, 255, 255),
+                              sf::Color(180, 180, 180),
+                              sf::Color(80, 80, 80), sf::Text("rubber", font, 16), "rubber" );
+
+    copyColor = rectangleButton( sf::Vector2f(60, 40), sf::Vector2f(400, 200),
+                                 sf::Color(255, 255, 255),
+                                 sf::Color(180, 180, 180),
+                                 sf::Color(80, 80, 80), sf::Text("copy \n color", font, 16), "copy\ncolor" );
+
+
 
     for( int i = 0; i < 16; ++i ){
         for( int j = 0; j < 16; ++j ){
@@ -49,6 +60,12 @@ void ColorMatrix::renderShape(sf::RenderWindow &target, sf::Vector2i mousePos) {
     target.draw(selectedColor);
     target.draw(selectedText);
     target.draw(selectedColorText);
+
+    rubber.updateColor(mousePos);
+    rubber.render(target);
+
+    copyColor.updateColor(mousePos);
+    copyColor.render(target);
 
     // color matrix change
     for(int i = 0; i < 16; ++i){
@@ -87,7 +104,7 @@ void ColorMatrix::checkPressing() {
                 selectedColor.setFillColor(sf::Color( mainBarColor, i*16, j*16 ) );
                 matrixSelect.setPosition(j*21 + 7, i*21 + 7);
                 selectedColorText.setString("R: " + std::to_string(mainBarColor) + " G: " + std::to_string(i*16) + " B: " + std::to_string(j*16));
-                pickedColor = sf::Color( mainBarColor, i*16, j*16 );
+                setColor( sf::Color( mainBarColor, i*16, j*16 ) );
             }
         }
 
@@ -95,11 +112,29 @@ void ColorMatrix::checkPressing() {
             mainBarColor = i*16;
             barSelect.setPosition(i*21 + 7, 357);
         }
+
+        if( rubber.isPressed() ){
+            setColor(rubber.getColor() );
+        }
+
+        if( copyColor.isPressed() ){
+            setColor(copyColor.getColor());
+        }
+
+
     }
 }
 
 sf::Color ColorMatrix::getColor() {
     return pickedColor;
+}
+
+void ColorMatrix::setColor(sf::Color color) {
+    pickedColor = color;
+}
+
+void ColorMatrix::setCopiedColor(sf::Color color) {
+    copyColor.changeNormalColor(color);
 }
 
 ColorMatrix::~ColorMatrix(){}

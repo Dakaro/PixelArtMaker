@@ -17,13 +17,15 @@ private:
     sf::Text selectedColorText;
     sf::Font font;
     sf::Color pickedColor;
+    rectangleButton rubber;
+    rectangleButton copyColor;
 
 public:
 
     ColorMatrix();
     ~ColorMatrix();
-    void selectFromBar();
-    void selectColorPixel();
+    void setColor(sf::Color color);
+    void setCopiedColor(sf::Color color);
     void changeBarColor();
     void renderShape(sf::RenderWindow &target, sf::Vector2i mousePos);
     void checkPressing();
